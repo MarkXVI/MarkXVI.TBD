@@ -13,7 +13,7 @@ cd dist
 # echo 'www.example.com' > CNAME
 
 git checkout dist
-git add -A
+git add .
 git commit -m 'deploy'
 git push origin dist
 
