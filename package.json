@@ -10,6 +10,7 @@
     "server": "node ./src/backend/app.js",
     "dev-start": "vite --mode development --open",
     "dev-server": "nodemon ./src/backend/app.js --open",
+    "deploy": "sh ./deploy.sh",
     "build": "vite build",
     "preview": "vite preview"
   },
