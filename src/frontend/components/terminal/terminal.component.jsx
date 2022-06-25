@@ -1,6 +1,6 @@
 import React from "react";
 
-import { banner, EmojiUP } from './commands.js';
+import { help, socials, email, banner, EmojiUP } from './commands.js';
 import '../../stylesheets/terminal.stylesheet.css';
 
 const Terminal = () => {
@@ -81,15 +81,15 @@ const Terminal = () => {
             case 'emoji-up':
                 return loopLines(EmojiUP, "", 80);
             case 'help':
-                return help;
+                return loopLines(help, "", 80);
             case 'whois':
                 return whois;
             case 'video':
                 return video;
             case 'projects':
                 return projects;
-            case 'socials':
-                return socials;
+            case 'connect':
+                return connect();
             case "clear":
                 return setTimeout(() => {
                     let terminal = $('terminal');
@@ -99,6 +99,10 @@ const Terminal = () => {
                 return addLine("<span class=\"inherit\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
                    
         }
+    }
+
+    const connect = () => {
+        return 'How would you like to connect with me?';
     }
 
     const newTab = (link) => {
