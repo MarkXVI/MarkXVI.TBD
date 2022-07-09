@@ -1,6 +1,7 @@
 import React from "react";
 
-import { help, socials, email, banner, EmojiUP } from './commands.js';
+import { help, socials, email, banner, banner2 } from './base_commands.js';
+import { up, spiderman, trippy, minion } from './emoji_commands';
 import '../../stylesheets/terminal.stylesheet.css';
 
 const Terminal = () => {
@@ -10,8 +11,6 @@ const Terminal = () => {
     };
 
     let git = 12;
-    let pw = false;
-    let pwd = false;
     let commands = [];
 
     console.log(
@@ -22,74 +21,87 @@ const Terminal = () => {
     const enterKey = (e) => {
         const command = $('typer');
         const textarea = $('texter');
+
         if (e.keyCode == 181) {
             document.location.reload(true);
         }
-        if (pw) {
-            let et = "*";
-            let w = textarea.value.length;
-            command.innerHTML = et.repeat(w);
-            if (textarea.value === password) {
-                pwd = true;
-            }
-            if (pwd && e.keyCode == 13) {
-                loopLines(secret, "color2 margin", 120);
-                command.innerHTML = "";
+        if (e.keyCode == 13) {
+            commands.push(command.innerHTML);
+            git = commands.length;
+            addLine("Guest@MarkXVI:~$ " + command.innerHTML, "no-animation", 0);
+            commander(command.innerHTML.toLowerCase());
+            command.innerHTML = "";
+            textarea.value = "";
+        }
+        if (e.keyCode == 38 && git != 0) {
+            git -= 1;
+            textarea.value = commands[git];
+            command.innerHTML = textarea.value;
+        }
+        if (e.keyCode == 40 && git != commands.length) {
+            git += 1;
+            if (commands[git] === undefined) {
                 textarea.value = "";
-                pwd = false;
-                pw = false;
-                let liner = $('liner');
-                liner.classList.remove("password");
-            } else if (e.keyCode == 13) {
-                addLine("Wrong password", "error", 0);
-                command.innerHTML = "";
-                textarea.value = "";
-                pw = false;
-                let liner = $('liner');
-                liner.classList.remove("password");
-            }
-        } else {
-            if (e.keyCode == 13) {
-                commands.push(command.innerHTML);
-                git = commands.length;
-                addLine("Guest@MarkXVI:~$ " + command.innerHTML, "no-animation", 0);
-                commander(command.innerHTML.toLowerCase());
-                command.innerHTML = "";
-                textarea.value = "";
-            }
-            if (e.keyCode == 38 && git != 0) {
-                git -= 1;
+            } else {
                 textarea.value = commands[git];
-                command.innerHTML = textarea.value;
             }
-            if (e.keyCode == 40 && git != commands.length) {
-                git += 1;
-                if (commands[git] === undefined) {
-                    textarea.value = "";
-                } else {
-                    textarea.value = commands[git];
-                }
-                command.innerHTML = textarea.value;
-            }
+            command.innerHTML = textarea.value;
         }
     }
 
     const commander = (cmd) => {
-        switch (cmd.toLowerCase()) {
+        let commandArray = cmd.toLowerCase().split(" ");
+
+        switch (commandArray[0]) {
+            case 'undefined':
+                return addLine('<span class=\"whisper\">This is not a bug, it is a feature!<span>', "error", 80);
             case 'banner':
                 return loopLines(banner, "", 80);
-            case 'emoji-up':
-                return loopLines(EmojiUP, "", 80);
+            case 'emoji':
+                switch (commandArray[1]) {
+                    case '':
+                        return addLine('<span class=\"whisper\">you do have write something more, I can\'t read you mind and show you what you want to see...', "", 80)
+                    case 'help':
+                        return addLine('<span class=\"inherit\"> Available options: <span class=\"command\">up</span>, <span class=\"command\">spiderman</span>, <span class=\"command\">trippy</span>, <span class=\"command\">minion</span>.</span>', "", 80);
+                    case 'up':
+                        return loopLines(up, "", 80);
+                    case 'spiderman':
+                        return loopLines(spiderman, "", 80);
+                    case 'trippy':
+                        return loopLines(trippy, "", 80);
+                    case 'minion':
+                        return loopLines(minion, "", 80);
+                    default:
+                        return addLine('<span class=\"inherit\">This emoji art is not available yet. Contact me and we\'ll see about adding it!<span>', "", 80)
+                }
             case 'help':
                 return loopLines(help, "", 80);
-            case 'whois':
-                return whois;
+            case 'open':
+                switch (commandArray[1]) {
+                    case 'help':
+                        return addLine('<span class=\"inherit\"> Available options: <span class=\"command\">Instagram</span>, <span class=\"command\">art-Instagram</span>, <span class=\"command\">Linkedin</span>, <span class=\"command\">Twitter</span>, <span class=\"command\">GitHub</span>.</span>', "", 80);
+                    case 'instagram':
+                        return newTab(socials["instagram"]);
+                    case 'art-instagram':
+                        return newTab(socials["art-instagram"]);
+                    case 'twitter':
+                        return newTab(socials["twitter"]);
+                    case 'linkedin':
+                        return newTab(socials["linkedin"]);
+                    case 'github':
+                        return newTab(socials["github"]);
+                    default:
+                        return (
+                            addLine('link not available...', "error", 80),
+                            addLine('type <span class=\"command\">"open help"</span> for available options.', "", 80)                            
+                        );
+                }
             case 'video':
                 return video;
             case 'projects':
                 return projects;
             case 'connect':
-                return connect();
+                return addLine('Why would someone so amazing as <span class=\"command\">YOU</span> was to connect with someone like <span class=\"command\">ME</span>?', '', 100);
             case "clear":
                 return setTimeout(() => {
                     let terminal = $('terminal');
@@ -99,10 +111,6 @@ const Terminal = () => {
                 return addLine("<span class=\"inherit\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
                    
         }
-    }
-
-    const connect = () => {
-        return 'How would you like to connect with me?';
     }
 
     const newTab = (link) => {
@@ -143,7 +151,7 @@ const Terminal = () => {
         let cursor = $("cursor");
         cursor.style.left = "0px";
 
-        loopLines(banner, "", 80);
+        loopLines(banner2, "", 80);
         const textarea = $('texter');
         textarea.focus();
 
@@ -158,9 +166,7 @@ const Terminal = () => {
         e = e || window.event;
         let w = $("typer");
         let tw = e.target.value;
-        if (!pw) {
-            w.innerHTML = nl2br(tw);
-        }
+        w.innerHTML = nl2br(tw);
     }
 
     function moveIt(count, e) {
@@ -194,7 +200,7 @@ const Terminal = () => {
                         moveIt(event.target.value.length, event);
                     }}
                     onKeyPress={(event) => typeIt(event)}
-                    autoFocus={true} onBlur={({ target }) => target.focus()}
+                    onBlur={({ target }) => target.focus()}
                 ></textarea>
             </div>
             <div id="liner">

@@ -1,53 +1,3 @@
-/* h1 {
-    color: #11FF00;
-    font-size: 32px;
-}
-h2 {
-    color: #D400FF;
-    font-size: 32px;
-}
-h3 {
-    color: #FFD35C;
-    font-size: 32px;
-}
-p, input {
-    color: #9AFEFE;
-    font-size: 32px;
-    
-}
-
-input {
-    width: 90%;
-    height: 32px;
-    border: none;
-    background-color: #4E5656;
-}
-input:focus {
-    border: none;
-    background-color: #4E5656;
-    caret-color: #9AFEFE;
-    outline: none;
-}
-
-.terminal {
-    margin: 0;
-    background-color: #4E5656;
-    min-height: 100vh;
-    min-width: 100vw;
-    font-family: monospace;
-}
-
-.commandLine {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-}
-
-#beforeText {
-    display: flex;
-    align-items: center;
-} */
-
 body {
     margin: 0;
     padding: 15px 20px;
@@ -61,11 +11,6 @@ body {
 }
 
 ::selection {
-    color: #211830;
-    background-color: #519975;
-}
-
-::-moz-selection {
     color: #211830;
     background-color: #519975;
 }
@@ -123,10 +68,6 @@ b {
     content: "Guest@MarkXVI:~$ ";
 }
 
-#liner.password::before {
-    content: "Password:";
-}
-
 @keyframes show {
     from {
         opacity: 0;
@@ -178,6 +119,10 @@ p {
 .command {
     color: #73ABAD;
     text-shadow: 0 0 5px #73ABAD;
+}
+.whisper {
+    color: #3f3d4a;
+    text-shadow: 0 0 5px #2b2a33;
 }
 
 .error {
