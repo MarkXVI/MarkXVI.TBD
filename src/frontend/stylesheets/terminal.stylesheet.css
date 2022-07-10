@@ -1,13 +1,15 @@
 body {
-    margin: 0;
-    padding: 15px 20px;
     min-height: 99%;
     width: 100%;
-    min-width: 550px;
+    min-width: 950px;
     color: #519975;
     background: #211D1B;
     font-family: cursor, monospace;
     overflow-x: hidden;
+}
+
+#root {
+    padding: 15px 20px;
 }
 
 ::selection {

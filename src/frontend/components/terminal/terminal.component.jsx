@@ -74,6 +74,30 @@ const Terminal = () => {
                     default:
                         return addLine('<span class=\"inherit\">This emoji art is not available yet. Contact me and we\'ll see about adding it!<span>', "", 80)
                 }
+            case 'showme':
+                switch (commandArray[1]) {
+                    case 'ascii':
+                        
+                        const density = 'Ñ@#W$9876543210?!abc;:+=-,._ '
+                        
+                        
+                        return;
+                    case 'off':
+                        try {
+                            const video = document.getElementsByTagName("video");
+    
+                            const mediaStream = video[0].srcObject;
+                            const tracks = mediaStream.getTracks();
+                            tracks.forEach(track => track.stop())
+
+                            video[0].remove();
+                        } catch (e) {
+                            console.log(e);
+                        }
+                        return;
+                    default:
+                        return videoFeed();
+                }
             case 'help':
                 return loopLines(help, "", 80);
             case 'open':
@@ -92,20 +116,33 @@ const Terminal = () => {
                         return newTab(socials["github"]);
                     default:
                         return (
-                            addLine('link not available...', "error", 80),
-                            addLine('type <span class=\"command\">"open help"</span> for available options.', "", 80)                            
+                            addLine('Error: Link not found.', "error", 80),
+                            addLine('type <span class=\"command\">"open help"</span> for available options.', "", 80)
                         );
                 }
-            case 'video':
-                return video;
-            case 'projects':
-                return projects;
+            case 'download':
+                switch (commandArray[1]) {
+                    case 'help':
+                        return addLine('<span class=\"inherit\"> Available options: <span class=\"command\">CV</span>.</span>', "", 80);
+                    case 'cv':
+                        return download('cv.pdf');
+                    case 'chicken':
+                        return download('chicken.svg');
+                    default:
+                        return (
+                            addLine('Error: File not found.', "error", 80),
+                            addLine('type <span class=\"command\">"download help"</span> for available files for download.', "", 80)                          
+                        );
+                }
             case 'connect':
-                return addLine('Why would someone so amazing as <span class=\"command\">YOU</span> was to connect with someone like <span class=\"command\">ME</span>?', '', 100);
+                return (
+                    addLine('Why would someone so amazing as <span class=\"command\">YOU</span> was to connect with someone like <span class=\"command\">ME</span>?', '', 100),
+                    addLine('Would you still like to contact me? (Yes or No): ', "", 80)
+                );
             case "clear":
                 return setTimeout(() => {
                     let terminal = $('terminal');
-                    terminal.innerHTML = '<a id="before"></a>';
+                    terminal.innerHTML = '<a id="before"></a>'; 
                 }, 1);
             default:
                 return addLine("<span class=\"inherit\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
@@ -113,10 +150,48 @@ const Terminal = () => {
         }
     }
 
+    const videoFeed = () => {
+        const video = document.createElement("video");
+        video.setAttribute("playsinline", "");
+        video.setAttribute("autoplay", "");
+        video.setAttribute("muted", "");
+        video.style.maxWidth = "60%";
+        video.style.minWidth= "400px";
+        video.style.maxHeight= "800px";
+        video.style.display = "block";
+        video.style.margin = "auto";
+        video.style.padding = "20px 0";
+        
+        
+        const facingMode = "user";
+        const constraints = {
+          audio: false,
+          video: {
+            facingMode
+          }
+        };
+        
+        navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+          video.srcObject = stream;
+        });
+        
+        document.body.appendChild(video);
+    }
+
     const newTab = (link) => {
         setTimeout(function () {
             window.open(link, "_blank");
         }, 500);
+    }
+
+    const download = (filename) => {
+        console.log(filename);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `../../assets/${filename}`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 
     const addLine = (text, style, time) => {

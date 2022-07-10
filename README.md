@@ -51,6 +51,7 @@ This will include the following commands:
 - [ ]  `goto` (for page switching)
 - [ ]  `signin`
 - [ ]  `signup`
+- [x]  `showme` (shows livecam)
 - [x]  `clear`
 - [x]  `banner`
 
