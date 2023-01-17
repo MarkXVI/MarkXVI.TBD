@@ -6,7 +6,6 @@ const path = require('path')
 const PORT = process.env.PORT || 8080
 const API = require('./api/router.js')
 
-
 app.use(express.json()) // middleware
 app.use('/', express.static(path.resolve(__dirname, '..', '..', 'dist/')))
 app.use("/api", API)  // api routes

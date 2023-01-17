@@ -38,6 +38,7 @@
     "mongoose": "^6.3.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-router-dom": "^6.6.2",
     "three": "^0.141.0"
   }
 }

@@ -2,7 +2,7 @@ body {
     min-height: 99%;
     width: 100%;
     min-width: 950px;
-    color: #519975;
+    color: #ddb32a;
     background: #211D1B;
     font-family: cursor, monospace;
     overflow-x: hidden;
@@ -53,7 +53,6 @@ b {
 
 #command {
     cursor: text;
-    /* height: 50px; */
     color: #73ABAD;
 }
 
@@ -66,7 +65,7 @@ b {
 }
 
 #liner::before {
-    color: #519975;
+    color: #66c093;
     content: "Guest@MarkXVI:~$ ";
 }
 
@@ -93,6 +92,7 @@ p {
 }
 
 .no-animation {
+    color: #549977;
     animation: typing 0 steps(30, end);
 }
 
@@ -123,7 +123,7 @@ p {
     text-shadow: 0 0 5px #73ABAD;
 }
 .whisper {
-    color: #3f3d4a;
+    color: #474072;
     text-shadow: 0 0 5px #2b2a33;
 }
 

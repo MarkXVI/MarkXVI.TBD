@@ -1,0 +1,19 @@
+a {
+    width: fit-content;
+    height: fit-content;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+img{
+    width: 80%;
+    max-width: 1200px;
+}
+
+.CVContainer {
+    display: grid;
+    place-items: center;
+}

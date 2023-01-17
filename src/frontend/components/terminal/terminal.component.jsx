@@ -4,7 +4,7 @@ import { help, socials, email, banner, banner2 } from './base_commands.js';
 import { up, spiderman, trippy, minion } from './emoji_commands';
 import '../../stylesheets/terminal.stylesheet.css';
 
-const Terminal = () => {
+const Terminal = (setActivePanel) => {
 
     const $ = (elid) => {
         return document.getElementById(elid);
@@ -118,6 +118,22 @@ const Terminal = () => {
                         return (
                             addLine('Error: Link not found.', "error", 80),
                             addLine('type <span class=\"command\">"open help"</span> for available options.', "", 80)
+                        );
+                }
+            case 'goto':
+                switch (commandArray[1]) {
+                    case 'help':
+                        return addLine('<span class=\"inherit\"> Available options: <span class=\"command\">Home</span>, <span class=\"command\">CV</span>, <span class=\"command\">Contact</span>', "", 80);
+                    case 'home':
+                        return setActivePanel.setActivePanel('start');
+                    case 'cv':
+                        return setActivePanel.setActivePanel('cv');
+                    case 'contact':
+                        return setActivePanel.setActivePanel('contact');
+                    default:
+                        return (
+                            addLine('Error: Link not found.', "error", 80),
+                            addLine('type <span class=\"command\">"goto help"</span> for available options.', "", 80)
                         );
                 }
             case 'download':

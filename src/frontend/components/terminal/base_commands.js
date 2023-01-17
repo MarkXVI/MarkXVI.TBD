@@ -4,9 +4,9 @@ const help = [
     '<span class=\"command\">banner</span> :    You want to see this again. ok?',
     '<span class=\"command\">signin</span> :    Login for your special daily prize. <span class=\"whisper\">there is no prize, just priviliged content.</span>',
     '<span class=\"command\">signup</span> :    <span class=\"whisper\">INSERT A REASON WHY HERE!</span>',
-    '<span class=\"command\">connect</span>:    Why do you want to connect with me?',
+    '<span class=\"command\">contact</span>:    Why do you want to contact me?',
     '<span class=\"command\">open</span>   :    Open one of my socials in a new tab, type <span class=\"command\">"open help"</span> for available options.',
-    '<span class=\"command\"></span>',
+    '<span class=\"command\">goto</span>   :    Go to another page, type <span class=\"command\">"goto help"</span> for available options. ',
     '<span class=\"command\">clear</span>  :    Clears the terminal of all clutter. <span class=\"whisper\">this is very good for the soul.</span>',
     '<span class=\"command\">emoji</span>  :    See some emoji art, type <span class=\"command\">"emoji help"</span> for available options.',
     '<span class=\"command\">help</span>   :    Looks like you know this one!'
