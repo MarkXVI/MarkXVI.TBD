@@ -19,7 +19,8 @@
     "Harvey",
     "Three",
     "React",
-    "Vite"
+    "Vite",
+    "Terminal"
   ],
   "author": "Mark Harvey",
   "license": "ISC",
@@ -31,10 +32,13 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
+    "@progress/kendo-licensing": "^1.2.2",
+    "@progress/kendo-react-dialogs": "^5.5.0",
+    "@progress/kendo-theme-default": "^5.5.0",
     "concurrently": "^7.2.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.3.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
