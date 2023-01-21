@@ -48,18 +48,19 @@ This will include the following commands:
 - [ ]  `download` (for cv pdf)
 - [x]  `emoji` (for some emoji art)
 - [ ]  `connect` (for mailing/contacting me)
-- [ ]  `goto` (for page switching)
+- [x]  `goto` (for page switching)
 - [ ]  `signin`
 - [ ]  `signup`
 - [x]  `showme` (shows livecam)
 - [x]  `clear`
 - [x]  `banner`
+- [ ]  `exit`
 
 ## CV 
 
 This will include the following:
 - [ ] A button for switching to 3D mode
-- [ ] A download button
+- [x] A download button
 
 ## 3D CV 
 
