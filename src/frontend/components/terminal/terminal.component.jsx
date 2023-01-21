@@ -125,11 +125,12 @@ const Terminal = (setActivePanel) => {
                     case 'help':
                         return addLine('<span class=\"inherit\"> Available options: <span class=\"command\">Home</span>, <span class=\"command\">CV</span>, <span class=\"command\">Contact</span>', "", 80);
                     case 'home':
-                        return setActivePanel.setActivePanel('start');
+                        setActivePanel.setActivePanel('start');
+                        return(<Navigate to="/" replace={true} state={{ from: "/terminal" }} />);
                     case 'cv':
-                        return setActivePanel.setActivePanel('cv');
+                        return () => setActivePanel.setActivePanel('cv');
                     case 'contact':
-                        return setActivePanel.setActivePanel('contact');
+                        return () => setActivePanel.setActivePanel('contact');
                     default:
                         return (
                             addLine('Error: Link not found.', "error", 80),
