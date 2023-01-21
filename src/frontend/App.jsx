@@ -11,7 +11,6 @@ import ThreeCV from './components/threeCV/threeCV.component.jsx';
 import ThreeStart from './components/threeStart/threeStart.component.jsx';
 
 import Header from './components/header/header.component.jsx';
-import Window from './components/small_components/window/window.component.jsx';
 
 import './stylesheets/main.stylesheet.css';
 
@@ -68,6 +67,8 @@ function App() {
         <Route path="/" exact element={setCurrentPage()} />
         <Route path="terminal" element={< Terminal setActivePanel={setActivePanel} />} />
         <Route path="os" element={< OS />} />
+        
+        <Route path="*" element={setCurrentPage()} />
       </Routes>
     </BrowserRouter >
   )

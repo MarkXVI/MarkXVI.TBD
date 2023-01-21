@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 
 import { Window } from "@progress/kendo-react-dialogs";
 import '@progress/kendo-theme-default/dist/all.css';
@@ -9,7 +9,11 @@ import Contact from '../../contact/contact.component.jsx';
 import Terminal from '../../terminal/terminal.component.jsx';
 
 const WindowComponent = (title) => {
-  console.log(title.title);
+
+  const [visible, setVisible] = useState(false);
+  const toggleDialog = () => {
+    setVisible(!visible);
+  };
 
   const getComponent = (name) => {
 
@@ -23,19 +27,29 @@ const WindowComponent = (title) => {
         case 'Terminal':
             return < Terminal />
     }
-}
+  }
 
   return(
-      <Window
-        title={title.title}
-        onClose={() => setVisible(false)}
-        // onMove={() => }}
-        minimizeButton={false}
-        initialHeight={400}
-        initialWidth={600}
-      >
-        {getComponent(title.title)}
-      </Window>
+      <div>
+        <button
+          className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
+          onClick={toggleDialog}
+        >
+          {title.title}
+        </button>
+        {visible && (
+          <Window 
+            title={title.title} 
+            onClose={toggleDialog} 
+            initialHeight={400}
+            initialWidth={600}
+            initialLeft={100}
+            initialTop={300}
+          >
+            {getComponent(title.title)}
+          </Window>
+        )}
+      </div>
     );
 };
 
