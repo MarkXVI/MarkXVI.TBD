@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import CV from './components/cv/cv.component.jsx';
 import OS from './components/os/os.component.jsx';
@@ -62,7 +62,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter >
+    <Router>
       <Routes>
         <Route path="/" exact element={setCurrentPage()} />
         <Route path="terminal" element={< Terminal setActivePanel={setActivePanel} />} />
@@ -70,7 +70,7 @@ function App() {
         
         <Route path="*" element={setCurrentPage()} />
       </Routes>
-    </BrowserRouter >
+    </Router>
   )
 }
 
