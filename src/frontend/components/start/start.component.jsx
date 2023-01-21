@@ -15,7 +15,7 @@ const Start = () => {
       ];
 
     return (
-    <div>
+      <div>
         <h1>Start</h1>
         <div name="cards">
             {cards.map((card, index) => (
