@@ -15,6 +15,7 @@ This webpage uses:
 - [ ] 3D Main
 - [ ] Login
 - [ ] Terminal
+- [ ] OS
 - [ ] CV
 - [ ] 3D CV
 
@@ -25,7 +26,7 @@ This will include the following:
 - [ ] A button for switching to the terminal
 - [ ] A Sign in button
 - [ ] A Sign up button
-- [ ] A button to reach CV
+- [x] A button to reach CV
 
 ## 3D Main
 
@@ -45,16 +46,24 @@ Basic login using ==JWT token==.
 This will include the following commands:
 - [x]  `help`
 - [x]  `open` (for socails)
-- [ ]  `download` (for cv pdf)
+- [x]  `download` (for cv pdf)
 - [x]  `emoji` (for some emoji art)
 - [ ]  `connect` (for mailing/contacting me)
-- [x]  `goto` (for page switching)
+- [ ]  `goto` (for page switching)
 - [ ]  `signin`
 - [ ]  `signup`
 - [x]  `showme` (shows livecam)
 - [x]  `clear`
 - [x]  `banner`
-- [ ]  `exit`
+- [x]  `exit`
+
+## OS
+
+This will include the following:
+- [x] Buttons for each page
+- [ ] Make Buttons Pretty
+- [x] Windows for open pages
+- [ ] Make Windows Better
 
 ## CV 
 

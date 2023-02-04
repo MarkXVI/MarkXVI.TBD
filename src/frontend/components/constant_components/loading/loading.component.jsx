@@ -1,5 +1,5 @@
-import '../../stylesheets/loading.stylesheet.css';
-import logo from './../../assets/MarkXVI_LOGO.svg';
+import '../../../stylesheets/loading.stylesheet.css';
+import logo from './../../../assets/MarkXVI_LOGO.svg';
 
 const Loading = () => {
     return(

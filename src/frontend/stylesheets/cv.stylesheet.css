@@ -1,6 +1,10 @@
-a {
-    width: fit-content;
-    height: fit-content;
+.CVContainer {
+    display: grid;
+    place-items: center;
+}
+
+.CVContainer a {
+    height: max-content;
     justify-self: center;
     align-self: center;
     text-align: center;
@@ -8,12 +12,34 @@ a {
     max-width: 1200px;
 }
 
-img{
+.CVContainer img {
+    padding-top: 15px;
+    padding-bottom: 10px;
     width: 80%;
     max-width: 1200px;
 }
 
-.CVContainer {
-    display: grid;
-    place-items: center;
+.wrapper {
+    max-width: 60%;
+    overflow: hidden;
+}
+  
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+}
+
+.marquee p {
+    display: inline-block;
+}
+
+@keyframes marquee {
+0% {
+    transform: translate3d(0, 0, 0);
+}
+100% {
+    transform: translate3d(-50%, 0, 0);
+}
 }

@@ -4,6 +4,9 @@ import { help, socials, email, banner, banner2 } from './base_commands.js';
 import { up, spiderman, trippy, minion } from './emoji_commands';
 import '../../stylesheets/terminal.stylesheet.css';
 
+import CV from '../../assets/CVdocs/CV_MarkHarvey.pdf';
+import Chicken from '../../assets/chicken.svg';
+
 const Terminal = (setActivePanel) => {
 
     const $ = (elid) => {
@@ -126,11 +129,13 @@ const Terminal = (setActivePanel) => {
                         return addLine('<span class=\"inherit\"> Available options: <span class=\"command\">Home</span>, <span class=\"command\">CV</span>, <span class=\"command\">Contact</span>', "", 80);
                     case 'home':
                         setActivePanel.setActivePanel('start');
-                        return(<Navigate to="/" replace={true} state={{ from: "/terminal" }} />);
+                        return window.open("/", "_self");
                     case 'cv':
-                        return () => setActivePanel.setActivePanel('cv');
+                        setActivePanel.setActivePanel('cv');
+                        return window.open("/", "_self");
                     case 'contact':
-                        return () => setActivePanel.setActivePanel('contact');
+                        setActivePanel.setActivePanel('contact');
+                        return window.open("/", "_self");
                     default:
                         return (
                             addLine('Error: Link not found.', "error", 80),
@@ -142,16 +147,16 @@ const Terminal = (setActivePanel) => {
                     case 'help':
                         return addLine('<span class=\"inherit\"> Available options: <span class=\"command\">CV</span>.</span>', "", 80);
                     case 'cv':
-                        return download('cv.pdf');
+                        return download(CV, 'CV_MarkHarvey.pdf');
                     case 'chicken':
-                        return download('chicken.svg');
+                        return download(Chicken, 'chicken.svg');
                     default:
                         return (
                             addLine('Error: File not found.', "error", 80),
                             addLine('type <span class=\"command\">"download help"</span> for available files for download.', "", 80)                          
                         );
                 }
-            case 'connect':
+            case 'contact':
                 return (
                     addLine('Why would someone so amazing as <span class=\"command\">YOU</span> was to connect with someone like <span class=\"command\">ME</span>?', '', 100),
                     addLine('Would you still like to contact me? (Yes or No): ', "", 80)
@@ -161,6 +166,9 @@ const Terminal = (setActivePanel) => {
                     let terminal = $('terminal');
                     terminal.innerHTML = '<a id="before"></a>'; 
                 }, 1);
+            case "exit":
+                window.open("", "_self");
+                window.close();
             default:
                 return addLine("<span class=\"inherit\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
                    
@@ -201,11 +209,11 @@ const Terminal = (setActivePanel) => {
         }, 500);
     }
 
-    const download = (filename) => {
+    const download = (filepath, filename) => {
         console.log(filename);
         const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `../../assets/${filename}`);
+        link.href = filepath;
+        link.download = filename;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

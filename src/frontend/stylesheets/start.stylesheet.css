@@ -1,6 +1,44 @@
+.intro p {
+    width: 100%;
+    white-space: pre-wrap;
+}
+
+.intro {
+    text-align: center;
+    background-color: rgba(158, 158, 158, 0.247);
+    border-radius: 50px;
+}
+
+.projects {
+    text-align: center;
+}
+
 .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-gap: 20px;
-    align-items: stretch;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+}
+
+.tools {
+    background-color: rgba(158, 158, 158, 0.247);
+    border-radius: 50px;
+    text-align: center;
+}
+
+.tools img {
+    align-self: left;
+    width: 3rem;
+    padding-right:10px;
+}
+
+.tools img .language {
+    width: 4.5rem;
+}
+
+.stats {
+    text-align: center;
 }

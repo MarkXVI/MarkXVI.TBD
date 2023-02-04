@@ -9,9 +9,26 @@ const CV = () => {
     return (
         <div>
             <h1>CV</h1>
-            <div class= "CVContainer">
+            <div className= "CVContainer">
+                <div className= "wrapper">
+                    <div class="marquee">
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                    </div>
+                </div>
                 <a href={CVpdf} name="CV_MarkHarvey"><img src={CVimg} /></a>
-                <p>Press on the CV to view as a PDF</p>
+                <div className= "wrapper">
+                    <div class="marquee">
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                        <p>Press on the CV to view as a PDF -&nbsp;</p>
+                    </div>
+                </div>
             </div>
         </div>
     );
