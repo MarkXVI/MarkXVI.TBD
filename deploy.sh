@@ -12,10 +12,11 @@ cd dist
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
 
-git checkout dist
-git add .
+git checkout -B dist
+git add -f /dist
+git rm -rf .
 git commit -m 'deploy'
-git push origin dist
+git push -f origin dist
 
 # if you are deploying to https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main

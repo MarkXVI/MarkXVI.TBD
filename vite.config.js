@@ -7,5 +7,14 @@ export default defineConfig({
 		minify: 'esbuild',
 		target: "esnext"
 	},
+	outDir: "dist",
+	assetsInlineLimit: 0,
+	rollupInputOptions: {
+	  input: "src/main.jsx",
+	},
+	rollupOutputOptions: {
+	  format: "es",
+	  file: "dist/bundle.js",
+	},
   plugins: [react()]
 })
