@@ -3,7 +3,6 @@
 # abort on errors
 set -e
 
-git checkout -B --orphan dist
 
 # build
 npm run build
@@ -13,6 +12,7 @@ touch .nojekyll
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
 
+git checkout -B --orphan dist
 git add -f ./dist .nojekyll
 git commit -m 'deploy'
 git push -f origin dist
