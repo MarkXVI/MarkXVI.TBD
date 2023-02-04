@@ -3,17 +3,17 @@
 # abort on errors
 set -e
 
+git checkout -B dist
+
 # build
 npm run build
 
-# navigate into the build output directory
-cd dist
+touch .nojekyll
 
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
 
-git checkout -B dist
-git add -f ./dist
+git add -f ./dist .nojekyll
 git rm -rf .
 git commit -m 'deploy'
 git push -f origin dist
@@ -25,5 +25,3 @@ git push -f origin dist
 # git push -f git@github.com:<USERNAME>/<REPO>.git main:gh-pages
 
 git checkout main
-
-cd -
