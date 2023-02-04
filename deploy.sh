@@ -13,8 +13,8 @@ touch .nojekyll
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
 
+git rm -r .
 git add -f ./dist .nojekyll
-git rm -rf .
 git commit -m 'deploy'
 git push -f origin dist
 
