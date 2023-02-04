@@ -3,7 +3,7 @@
 # abort on errors
 set -e
 
-git checkout -B dist
+git checkout -B --orphan dist
 
 # build
 npm run build
