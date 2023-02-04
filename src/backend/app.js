@@ -10,8 +10,8 @@ app.use(express.json()) // middleware
 app.use('/', express.static(path.resolve(__dirname, '..', '..', 'dist/')))
 app.use("/api", API)  // api routes
 
-DATABASE.connect()
-    .then(() => console.log("You have been successfully connected to the Database!"))
-    .then(() => app.listen(PORT, () => {
-        console.log(`Express Server has started on port ${PORT}! See http://localhost:${PORT}/`)
-    }));
+// DATABASE.connect()
+//     .then(() => console.log("You have been successfully connected to the Database!"))
+//     .then(() => app.listen(PORT, () => {
+//         console.log(`Express Server has started on port ${PORT}! See http://localhost:${PORT}/`)
+//     }));
