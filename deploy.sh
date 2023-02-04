@@ -12,7 +12,7 @@ touch .nojekyll
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
 
-git checkout -B --orphan dist
+git checkout -B dist
 git add -f ./dist .nojekyll
 git commit -m 'deploy'
 git push -f origin dist
