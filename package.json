@@ -1,5 +1,6 @@
 {
   "name": "markxvi-webpage",
+  "homepage" : "https://markxvi.github.io/",
   "private": true,
   "version": "1.0.0",
   "scripts": {
